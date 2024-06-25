@@ -1,4 +1,4 @@
-import { getCabin } from '@/app/_lib/data-service';
+import { getCabin, getCabins } from '@/app/_lib/data-service';
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
@@ -9,6 +9,18 @@ export async function generateMetadata({ params }) {
   };
 }
 
+// This async function is used to generate the static parameters for our Next.js app.
+// It fetches all the cabins from the data service and creates an array of objects with the cabinId as the only property. 
+// This array will be used to generate static pages for each cabin on our website.
+// The function returns a Promise that resolves to an array of objects. Each object contains a property called 'cabinId' which is a string representing the id of a cabin.
+export async function generateStaticParams() {
+  const cabins = await getCabins();
+  const ids = cabins.map((cabin) => ({
+    cabinId: String(cabin.id),
+  }));
+
+  return ids;
+}
 export default async function Page({ params }) {
   const cabin = await getCabin(params.cabinId);
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
