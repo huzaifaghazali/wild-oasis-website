@@ -1,3 +1,4 @@
+import TextExpander from '@/app/_components/TextExpander';
 import { getCabin, getCabins } from '@/app/_lib/data-service';
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
@@ -10,7 +11,7 @@ export async function generateMetadata({ params }) {
 }
 
 // This async function is used to generate the static parameters for our Next.js app.
-// It fetches all the cabins from the data service and creates an array of objects with the cabinId as the only property. 
+// It fetches all the cabins from the data service and creates an array of objects with the cabinId as the only property.
 // This array will be used to generate static pages for each cabin on our website.
 // The function returns a Promise that resolves to an array of objects. Each object contains a property called 'cabinId' which is a string representing the id of a cabin.
 export async function generateStaticParams() {
@@ -43,7 +44,9 @@ export default async function Page({ params }) {
             Cabin {name}
           </h3>
 
-          <p className='text-lg text-primary-300 mb-10'>{description}</p>
+          <p className='text-lg text-primary-300 mb-10'>
+            <TextExpander>{description}</TextExpander>
+          </p>
 
           <ul className='flex flex-col gap-4 mb-7'>
             <li className='flex gap-3 items-center'>
