@@ -10,10 +10,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-// This async function is used to generate the static parameters for our Next.js app.
-// It fetches all the cabins from the data service and creates an array of objects with the cabinId as the only property.
-// This array will be used to generate static pages for each cabin on our website.
-// The function returns a Promise that resolves to an array of objects. Each object contains a property called 'cabinId' which is a string representing the id of a cabin.
 export async function generateStaticParams() {
   const cabins = await getCabins();
   const ids = cabins.map((cabin) => ({
