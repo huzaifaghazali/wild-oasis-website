@@ -2,6 +2,22 @@ import { notFound } from 'next/navigation';
 import { eachDayOfInterval } from 'date-fns';
 import { supabase } from './supabase';
 
+// ********** GET ********** //
+
+export async function getCabin(id) {
+  const { data, error } = await supabase
+    .from('cabins')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    notFound();
+  }
+
+  return data;
+}
+
 export const getCabins = async () => {
   const { data, error } = await supabase
     .from('cabins')
@@ -16,17 +32,15 @@ export const getCabins = async () => {
   return data;
 };
 
-export async function getCabin(id) {
+// Guests are uniquely identified by their email address
+export async function getGuest(email) {
   const { data, error } = await supabase
-    .from('cabins')
+    .from('guests')
     .select('*')
-    .eq('id', id)
+    .eq('email', email)
     .single();
 
-  if (error) {
-    notFound();
-  }
-
+  // No error here! We handle the possibility of no guest in the sign in callback
   return data;
 }
 
@@ -78,6 +92,19 @@ export async function getSettings() {
   if (error) {
     console.error(error);
     throw new Error('Settings could not be loaded');
+  }
+
+  return data;
+}
+
+// ********** CREATE ********** //
+
+export async function createGuest(newGuest) {
+  const { data, error } = await supabase.from('guests').insert([newGuest]);
+
+  if (error) {
+    console.error(error);
+    throw new Error('Guest could not be created');
   }
 
   return data;
