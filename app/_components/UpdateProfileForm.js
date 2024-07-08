@@ -4,7 +4,9 @@ import React from 'react';
 import { updateGuest } from '../_lib/actions';
 
 function UpdateProfileForm({ guest, children }) {
-  const { fullName, email, nationality, countryFlag } = guest;
+  const { fullName, email, nationality, countryFlag, nationalID } = guest;
+
+  console.log(guest);
 
   return (
     <form
@@ -47,7 +49,7 @@ function UpdateProfileForm({ guest, children }) {
       <div className='space-y-2'>
         <label htmlFor='nationalID'>National ID number</label>
         <input
-          defaultValue={nationality}
+          defaultValue={nationalID}
           name='nationalID'
           className='px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm'
         />
