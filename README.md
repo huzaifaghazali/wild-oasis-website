@@ -1,4 +1,4 @@
-![wildO7](https://github.com/huzaifaghazali/wild-oasis-website/assets/63412385/e889759e-8119-4bfa-906e-bfa68d65e7e4)# The Wild Oasis Website
+# The Wild Oasis Website
 
 The Wild Oasis Website is a full-stack Next.js application where guests can learn about the Wild Oasis Hotel, browse all cabins, reserve a cabin, and create and update their profile.
 
