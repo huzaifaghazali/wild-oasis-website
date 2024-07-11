@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Wild Oasis Website
 
-## Getting Started
+The Wild Oasis Website is a full-stack Next.js application where guests can learn about the Wild Oasis Hotel, browse all cabins, reserve a cabin, and create and update their profile.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Guest Information**: Learn all about the Wild Oasis Hotel.
+- **Cabin Information**: View details about each cabin, including booked dates.
+- **Filter Cabins**: Filter cabins by their maximum guest capacity.
+- **Reserve Cabins**: Reserve a cabin for a certain date range.
+- **Manage Reservations**: View all past and future reservations, update, or delete a reservation.
+- **User Authentication**: Sign up and log in to reserve a cabin and manage reservations.
+- **Profile Management**: Create and update profile information to make check-in at the hotel faster.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pictures
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/huzaifaghazali/wild-oasis-website.git
+   cd the-wild-oasis-website
+   ```
 
-## Learn More
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Set up environment variables. Create a .env.local file in the root of the project and add the following variables
+   ```bash
+   SUPABASE_URL
+   SUPABASE_KEY
+   NEXTAUTH_URL
+   NEXTAUTH_SECRET
+   AUTH_GOOGLE_ID
+   AUTH_GOOGLE_SECRET
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Scripts
+- `dev`: Runs the development server.
+- `build`: Builds the application for production.
+- `start`: Starts the application in production mode.
+- `prod`: Builds and starts the application in production mode.
 
-## Deploy on Vercel
+## Dependencies
+- `@heroicons/react`: React component library for icons.
+- `@supabase/supabase-js`: JavaScript client library for Supabase.
+- `date-fns`: JavaScript date utility library.
+- `next`: React framework for production.
+- `next-auth`: Authentication for Next.js applications.
+- `react`: JavaScript library for building user interfaces.
+- `react-day-picker`: Date picker component for React.
+- `react-dom`: Entry point of the DOM renderer for React.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Dev Dependencies
+- `eslint`: Pluggable JavaScript linter.
+- `eslint-config-next`: ESLint configuration for Next.js.
+- `postcss`: Tool for transforming CSS with JavaScript.
+- `tailwindcss`: Utility-first CSS framework.
